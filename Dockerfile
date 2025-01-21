@@ -1,18 +1,25 @@
-FROM python:3.9
+# as of Jan 2025, python3 on production is on 3.8.10
+FROM python:3.8.10
 
 RUN apt-get -qq update && apt-get -qqy install awscli
 
+# Create a virtualenv for the app
+RUN python3 -m venv /var/venv
+ENV PATH="/var/venv/bin:$PATH"
+
 # Install dependencies
 COPY ./requirements.txt /tmp/requirements.txt
-RUN pip install -r /tmp/requirements.txt
+RUN pip install -Ur /tmp/requirements.txt
 
 # Add the cc-index-server code into the image
 COPY ./ /opt/webapp/
 WORKDIR /opt/webapp
 
-RUN ./install-collections.sh
-# Note: to avoid that collections are fetched anew on every image build,
-# you may install collections locally on the host in the build directory
-# and remove this command
+VOLUME /opt/webapp/collections
 
-CMD /usr/local/bin/pywb
+ARG INSTALL_COLLECTIONS=true
+RUN if [ "$INSTALL_COLLECTIONS" = "true" ]; then \
+        ./install-collections.sh; \
+    fi
+
+CMD uwsgi --ini uwsgi.ini
