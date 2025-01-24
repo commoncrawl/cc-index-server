@@ -6,7 +6,3 @@ greenlet==1.1.2
 gevent==20.9.0
 werkzeug==2.0.3
 markupsafe==2.0.1
-
-# AWS CLI (aws s3 cp ...) is used by install-collections.sh
-# to fetch cluster.idx and metadata.yaml
-awscli
