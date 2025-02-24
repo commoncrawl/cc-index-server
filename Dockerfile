@@ -1,5 +1,5 @@
 # as of Jan 2025, python3 on production is on 3.8.10
-FROM python:3.8.10
+FROM python:3.11-bookworm
 
 # Create a virtualenv for the app
 RUN python3 -m venv /var/venv
