@@ -1,8 +1,8 @@
 # Modified version of PyWB (pywb>=2.5.0), API compatible with PyWB 0.33.2
-pywb
+git+https://github.com/commoncrawl/pywb.git@common-crawl-cdx-index#egg=pywb
 boto3
 uwsgi
-greenlet
-gevent
-werkzeug
-markupsafe
+greenlet==1.1.2
+gevent==20.9.0
+werkzeug==2.0.3
+markupsafe==2.0.1
