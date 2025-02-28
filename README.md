@@ -3,6 +3,7 @@
 This project is a deployment of the [pywb](https://github.com/webrecorder/pywb) web archive replay and index server to provide
 an index query mechanism for datasets provided by [Common Crawl](https://commoncrawl.org)
 
+We depend on a fork of pywb, [maintained on this branch](https://github.com/commoncrawl/pywb/tree/common-crawl-cdx-index). It is a modified version of PyWB (pywb>=2.5.0), which is API compatible with PyWB 0.33.2.
 
 ## Usage & Installation
 To run locally, please install with `pip install -r requirements.txt`
