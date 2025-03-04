@@ -1,9 +1,13 @@
+# this is the lowest version that seems to build on newer oses on arm.
+# currently, our pywb tries to get 20.9.0, we should update that...
+gevent==20.12.0
+
 # Modified version of PyWB (pywb>=2.5.0), API compatible with PyWB 0.33.2
 git+https://github.com/commoncrawl/pywb.git@common-crawl-cdx-index#egg=pywb
-boto3
-gevent
-uwsgi
 
-# AWS CLI (aws s3 cp ...) is used by install-collections.sh
-# to fetch cluster.idx and metadata.yaml
-#awscli
+cffi
+boto3
+uwsgi
+greenlet==1.1.2
+werkzeug==2.0.3
+markupsafe==2.0.1
