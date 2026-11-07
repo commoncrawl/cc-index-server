@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 if [ ! -d "collections" ]; then
     mkdir collections
